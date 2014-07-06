@@ -8,7 +8,7 @@ ListGenerator::ListGenerator(QWidget *parent) :
     ui->setupUi(this);
 
     readList("list.txt", v_ListUnit);
-    convVector2TableWidget();
+    conv_Vector2TableWidget();
 
 }
 
@@ -45,7 +45,7 @@ void ListGenerator::readList(std::string file_name, std::vector<ListUnit> &v)
 }
 
 
-void ListGenerator::convVector2TableWidget()
+void ListGenerator::conv_Vector2TableWidget()
 {
     ui->tableWidget->setRowCount(v_ListUnit.size() + 1);
 
@@ -62,12 +62,23 @@ void ListGenerator::convVector2TableWidget()
 
 void ListGenerator::writeTableLine(ListUnit listUnit)
 {
+    QSpinBox *spinBox = new QSpinBox;
+    spinBox->setRange(0, 10000);
+    spinBox->setValue(listUnit.quantity);
 
     ui->tableWidget->setItem(listUnit.num - 1, 0,  new QTableWidgetItem(QString::fromLocal8Bit(listUnit.name.c_str())));
     ui->tableWidget->setItem(listUnit.num - 1, 1,  new QTableWidgetItem(QString::fromLocal8Bit(listUnit.standard.c_str())));
-    ui->tableWidget->setItem(listUnit.num - 1, 2,  new QTableWidgetItem(QString::number(listUnit.quantity)));
+//    ui->tableWidget->setItem(listUnit.num - 1, 2,  new QTableWidgetItem(QString::number(listUnit.quantity)));
+    ui->tableWidget->setCellWidget(listUnit.num - 1, 2,  spinBox);
     ui->tableWidget->setItem(listUnit.num - 1, 3,  new QTableWidgetItem(QString::number(listUnit.price)));
     ui->tableWidget->setItem(listUnit.num - 1, 4,  new QTableWidgetItem(QString::number(listUnit.totalPrice)));
     ui->tableWidget->setItem(listUnit.num - 1, 5,  new QTableWidgetItem(listUnit.date.toString("yyyy.MM.dd")));
 
 }
+
+
+//std::vector<ListUnit> ListGenerator::conv_TableWidget2Vector()
+//{
+//
+//
+//}

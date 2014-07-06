@@ -6,6 +6,7 @@
 #include <QString>
 #include <QWidget>
 #include <QPushButton>
+#include <QSpinBox>
 #include <QDebug>
 #include <string>
 #include <sstream>
@@ -31,8 +32,10 @@ private:
     Ui::ListGenerator *ui;
     std::vector<ListUnit> v_ListUnit;
 
+    void conv_Vector2TableWidget();
+    std::vector<ListUnit> conv_TableWidget2Vector();
+
     void readList(std::string file_name, std::vector<ListUnit> &v);
-    void convVector2TableWidget();
     void writeTableLine(ListUnit listUnit);
 
 };
