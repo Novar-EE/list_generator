@@ -7,6 +7,13 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QDebug>
+#include <string>
+#include <sstream>
+#include <fstream>
+#include <vector>
+#include <iostream>
+
+#include "listunit.h"
 
 namespace Ui {
 class ListGenerator;
@@ -22,7 +29,11 @@ public:
 
 private:
     Ui::ListGenerator *ui;
+    std::vector<ListUnit> v_ListUnit;
 
+    void readList(std::string file_name, std::vector<ListUnit> &v);
+    void convVector2TableWidget();
+    void writeTableLine(ListUnit listUnit);
 
 };
 

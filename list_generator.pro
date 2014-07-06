@@ -15,6 +15,7 @@ TEMPLATE = app
 SOURCES += main.cpp\
         listgenerator.cpp
 
-HEADERS  += listgenerator.h
+HEADERS  += listgenerator.h \
+    listunit.h
 
 FORMS    += listgenerator.ui

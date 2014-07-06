@@ -28,12 +28,7 @@
       </property>
       <column>
        <property name="text">
-        <string>序号</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>产品名称</string>
+        <string>品名</string>
        </property>
       </column>
       <column>
@@ -43,17 +38,17 @@
       </column>
       <column>
        <property name="text">
-        <string>单价</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
         <string>数量</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>总价</string>
+        <string>单价</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>金额</string>
        </property>
       </column>
       <column>
