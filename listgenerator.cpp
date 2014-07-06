@@ -12,3 +12,5 @@ ListGenerator::~ListGenerator()
 {
     delete ui;
 }
+
+

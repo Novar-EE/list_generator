@@ -2,6 +2,11 @@
 #define LISTGENERATOR_H
 
 #include <QMainWindow>
+#include <QLabel>
+#include <QString>
+#include <QWidget>
+#include <QPushButton>
+#include <QDebug>
 
 namespace Ui {
 class ListGenerator;
@@ -17,6 +22,8 @@ public:
 
 private:
     Ui::ListGenerator *ui;
+
+
 };
 
 #endif // LISTGENERATOR_H
