@@ -28,16 +28,22 @@ public:
     explicit ListGenerator(QWidget *parent = 0);
     ~ListGenerator();
 
+private slots:
+    void updateTableWidget(int num);
+
 private:
     Ui::ListGenerator *ui;
     std::vector<ListUnit> v_ListUnit;
 
+    void createTableWidget();
+
     void conv_Vector2TableWidget();
-    std::vector<ListUnit> conv_TableWidget2Vector();
+    void conv_TableWidget2Vector();
     void writeTableLine(ListUnit listUnit);
     ListUnit readTableLine(int lineNum);
 
     void readList(std::string file_name, std::vector<ListUnit> &v);
+    void printList();
 
 };
 
