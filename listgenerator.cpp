@@ -10,6 +10,8 @@ ListGenerator::ListGenerator(QWidget *parent) :
     readList("list.txt", v_ListUnit);
     conv_Vector2TableWidget();
 
+    conv_TableWidget2Vector();
+
 }
 
 ListGenerator::~ListGenerator()
@@ -77,8 +79,33 @@ void ListGenerator::writeTableLine(ListUnit listUnit)
 }
 
 
-//std::vector<ListUnit> ListGenerator::conv_TableWidget2Vector()
-//{
-//
-//
-//}
+ListUnit ListGenerator::readTableLine(int lineNum)
+{
+    ListUnit listUnit;
+
+    listUnit.num = lineNum;
+    listUnit.name = ui->tableWidget->item(lineNum, 0)->text().toLocal8Bit();
+    listUnit.standard = ui->tableWidget->item(lineNum, 1)->text().toLocal8Bit();
+    listUnit.quantity = static_cast<QSpinBox*>(ui->tableWidget->cellWidget(lineNum, 2))->value();
+    listUnit.price = ui->tableWidget->item(lineNum, 3)->text().toDouble();
+    listUnit.totalPrice = ui->tableWidget->item(lineNum, 4)->text().toDouble();
+    listUnit.date = QDate::fromString(ui->tableWidget->item(lineNum, 5)->text(), "yyyy.MM.dd");
+
+    return listUnit;
+
+}
+
+std::vector<ListUnit> ListGenerator::conv_TableWidget2Vector()
+{
+    std::vector<ListUnit> v;
+
+    int row = 0;
+    while(ui->tableWidget->item(row, 0)){
+        v.push_back(readTableLine(row));
+        row ++;
+    }
+
+
+    return v;
+
+}

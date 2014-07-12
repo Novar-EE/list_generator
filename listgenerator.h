@@ -34,9 +34,10 @@ private:
 
     void conv_Vector2TableWidget();
     std::vector<ListUnit> conv_TableWidget2Vector();
+    void writeTableLine(ListUnit listUnit);
+    ListUnit readTableLine(int lineNum);
 
     void readList(std::string file_name, std::vector<ListUnit> &v);
-    void writeTableLine(ListUnit listUnit);
 
 };
 
